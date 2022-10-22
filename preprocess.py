@@ -24,6 +24,9 @@ class Preprocessing:
 	def text_lowercase(self, text):
 		return text.lower()
 
+	def covert_unicode(self,text):
+		return text.encode('ascii', 'ignore').decode()
+
 	def delete_tag(self, text):
 		return re.sub('\[(.*?)\]','', text)
 
@@ -48,7 +51,8 @@ class Preprocessing:
 
 	def Preprocess(self, str):
 		str = self.text_lowercase(str)
-		str = delete_tag(str)
+		str= self.covert_unicode(str)
+		str = self.delete_tag(str)
 		str = str.replace('\n\n', '')
 		str = str.replace('\n', ' ')
 		str = self.replace_cw(str)
