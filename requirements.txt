@@ -1,0 +1,6 @@
+nltk
+json
+pickle
+pandas
+numpy
+rank-bm25
