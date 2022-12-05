@@ -1,14 +1,19 @@
 import nltk
 import os
 import pickle
+import string
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
 import pandas as pd
 
 class Lemmatization(object):
     def __init__(self, dict_path='dictionary'):
         self.dict_path = dict_path
+        self.es_end_word=['s','sh','ch','x','z']
         self.vowels = "aeiou"
+        self.consonants = "bcdfghjklmnpqrstwxyz"
         self.word_lemma_dict={}
         with open(os.path.join(self.dict_path, "BNClemma10_3_with_c5.txt"), 'r', encoding='utf-8') as file:
             lines=file.read()
@@ -80,7 +85,7 @@ class Lemmatization(object):
         if treebank_tag.startswith('V') :
             return "VERB"
         #NN, NNS, NNP, NNP, NNPS -> NOUN
-        if treebank_tag.startswith('N'):
+        if treebank_tag.startswith('N') and treebank_tag != 'NN':
             return "NOUN"
         #RB, RBR, RBR, RBS, RP -> ADV
         if treebank_tag.startswith('R'):
@@ -113,19 +118,28 @@ class Lemmatization(object):
                         # wives -> wife
                         return word.replace('ves', 'fe')
                 
-                #stories, parties
+
                 if word.endswith('ies'):
-                    #->story, party
+                    #stories, parties -> story, party
                     return word.replace('ies', 'y')
 
                 #tomatoes, echoes
                 if word.endswith('es'):
                     if word.endswith('ese') and word[-4] in self.vowels:
                         return word[:-1]
-                    if word.endswith('zzes'):
-                        return word.replace('zzes', 'z')
-                    return word[:-2]
+                    #kisses -> kiss
+                    if any([word[:-2].endswith(end_w) for end_w in self.es_end_word]):
+                        if word.endswith('zzes'):
+                            #quizzes -> quizz
+                            return word.replace('zzes', 'z')
+                        return word[:-2]
+                    if word.endswith('oes') and word[-4] in self.consonants:
+                        return word[:-2]
+
+                    return word[:-1]
                 if word.endswith('ys'):
+                    if word[-3] in self.vowels:
+                        return word[:-1]
                     return word.replace('ys','y')
                 return word[:-1]
         return word
@@ -170,20 +184,28 @@ class LemmatizationWithPOSTagger(object):
             # As default pos in lemmatization is Noun
             return wordnet.NOUN
 
-    def pos_tag(self,token):
+    def pos_tag(self,tokens, tokenizer):
         # find the pos tagginf for each tokens [('What', 'WP'), ('can', 'MD'), ('I', 'PRP') ....
-        pos_tokens = nltk.pos_tag(token.split())
+        if tokenizer =='nltk': 
+            token= [token for token in word_tokenize(tokens) if token not in string.punctuation or token =="'"]
+            pos_tokens = nltk.pos_tag(token)
+        elif tokenizer == 'No_tokenize':
+            pos_tokens = nltk.pos_tag(tokens)
+        else: 
+            pos_tokens = nltk.pos_tag(tokens.split())
         return pos_tokens
     
-    def lemmatize(self, tokens):
-        # lemmatization using pos tagg   
-        pos_tokens= [self.pos_tag(token) for token in tokens]
+    def lemmatize(self, tokens, tokenizer='', return_pos=False):
+        # lemmatization using pos tagg
+        pos_tokens= [self.pos_tag(token, tokenizer) for token in tokens]
         
         # convert into feature set of [('What', 'What', ['WP']), ('can', 'can', ['MD']), ... ie [original WORD, Lemmatized word, POS tag]
         #pos_tokens = [[(word, lemmatizer.lemmatize(word,self.get_wordnet_pos(pos_tag)), [pos_tag]) for (word,pos_tag) in pos] for pos in pos_tokens]
         
         if self.use_nltk_lemma is not True:
-            pos_tokens = [" ".join([self.lemmatizer.lemmatize(word, self.lemmatizer._convert_pos(pos_tag)) for (word, pos_tag) in pos]) for pos in pos_tokens]
+            lemma_tokens = [" ".join([self.lemmatizer.lemmatize(word, self.lemmatizer._convert_pos(pos_tag)) for (word, pos_tag) in pos]) for pos in pos_tokens]
         else:
-            pos_tokens = [" ".join([self.lemmatizer.lemmatize(word,self.get_wordnet_pos(pos_tag)) for (word, pos_tag) in pos]) for pos in pos_tokens]
-        return pos_tokens
+            lemma_tokens = [" ".join([self.lemmatizer.lemmatize(word,self.get_wordnet_pos(pos_tag)) for (word, pos_tag) in pos]) for pos in pos_tokens]
+        if return_pos:
+            return lemma_tokens ,pos_tokens
+        return lemma_tokens

@@ -8,14 +8,21 @@ import pandas as pd
 import numpy as np
 
 from nltk.corpus import wordnet
+from nltk.stem import PorterStemmer
 
 from lemma import LemmatizationWithPOSTagger
 class Preprocessing:
 	def __init__(self, Pipeline=['']):
 		self.Pipeline=Pipeline
 
+		self.tokenizer='No_tokenize'
+		if "nltk_word_tokenizer" in self.Pipeline:
+			self.tokenizer='nltk'
+		elif "word_space_tokenize" in self.Pipeline:
+			self.tokenizer='split'
+
 		if "stemming" in self.Pipeline:
-			self.stemming = PorterStemmer()
+			self.stemmer = PorterStemmer()
 		if "nltk_lemmaziter" in self.Pipeline:
 			self.lemmatizer=LemmatizationWithPOSTagger(use_nltk_lemma=True)
 		if "lemmatizer" in self.Pipeline:
@@ -34,23 +41,28 @@ class Preprocessing:
 				return json.loads(f.read())
 
 	def text_lowercase(self, text):
+		#convert to lowercase
 		return text.lower()
 
 	def convert_unicode(self,text):
 		return text.encode('ascii', 'ignore').decode()
 
 	def delete_tag(self, text):
+		#remove tag ['[Verse 1]','[Chorus]','[Intro]',...] in lyric
 		return re.sub('\[(.*?)\]','', text)
 
 	def remove_whitespace(self, text):
+		#remove extra space
 		return  " ".join(text.split())
 
 	def remove_stopwords(self, text):
+		#remove word exist in stopword dictionary
 		word_tokens = nltk.tokenize.word_tokenize(text)
 		filtered_text = [word for word in word_tokens if word not in self.stop_words]
 		return " ".join(filtered_text)
 
 	def remove_punctuation(self, text):
+		# remove punctuation ex:,.?!;'"+
 		translator = str.maketrans('', '', string.punctuation)
 		return text.translate(translator)
 
@@ -62,11 +74,10 @@ class Preprocessing:
 	
 
 	def lemmatize(self, text):
-		return ". ".join(self.lemmatizer.lemmatize(text.split('. ')))
+		return ". ".join([str(sent) for sent in self.lemmatizer.lemmatize(text.split('. '), self.tokenizer)])
 
 	def stem(self, text):
-		#return " ".join([self.stemming.stem(word) for word in text.split('. ')])
-		pass
+		return ". ".join([" ".join([self.stemmer.stem(word) for word in sent.split(' ')]) for sent in text.split('. ')])
 
 	def handle_negation(self, text):
 		match = re.search(r'\b(?:not)\b (\S+)', text)
@@ -78,9 +89,11 @@ class Preprocessing:
 		str = self.text_lowercase(str)
 		str= self.convert_unicode(str)
 		str = self.delete_tag(str)
-		str = str.replace('\n\n', '\n')
+		str = str.replace('\n\n', '')
 		str = str.replace('\n', '. ')
+		str= self.remove_whitespace(str)
 		str = self.replace_cw(str)
+
 		if any(opt in self.Pipeline for opt in ['nltk_lemmaziter', 'lemmatizer']):
 			str= self.lemmatize(str)
 
@@ -88,10 +101,10 @@ class Preprocessing:
 			str= self.stem(str)
 
 		str= self.remove_punctuation(str)
-		str= self.remove_whitespace(str)
 
 		if 'handle_negation' in self.Pipeline:
 			str = self.handle_negation(str)
 
-		str= self.remove_stopwords(str)
+		if 'remove_stopword' in self.Pipeline:
+			str= self.remove_stopwords(str)
 		return str
