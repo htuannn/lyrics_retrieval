@@ -23,9 +23,9 @@ class Preprocessing:
 
 		if "stemming" in self.Pipeline:
 			self.stemmer = PorterStemmer()
-		if "nltk_lemmaziter" in self.Pipeline:
+		if "nltk_lemmatizer" in self.Pipeline:
 			self.lemmatizer=LemmatizationWithPOSTagger(use_nltk_lemma=True)
-		if "lemmatizer" in self.Pipeline:
+		if "DIY_lemmatizer" in self.Pipeline:
 			self.lemmatizer=LemmatizationWithPOSTagger()
 
 		self.CONTRACTION_MAP= self._load('dictionary')
@@ -94,7 +94,7 @@ class Preprocessing:
 		str= self.remove_whitespace(str)
 		str = self.replace_cw(str)
 
-		if any(opt in self.Pipeline for opt in ['nltk_lemmaziter', 'lemmatizer']):
+		if any(opt in self.Pipeline for opt in ['nltk_lemmatizer', 'DIY_lemmatizer']):
 			str= self.lemmatize(str)
 
 		if 'stemming' in self.Pipeline:
