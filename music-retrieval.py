@@ -30,24 +30,29 @@ if remove_stopwords:
 st.sidebar.write('You select:', pipeline)
 
 pipeline.append("nltk_word_tokenizer")
-clean = preprocess.Preprocessing(Pipeline=pipeline)
+
 
 if 'tokenize_lyric' not in st.session_state:
     st.session_state.tokenize_lyric = None
+if 'preprocesser' not in st.session_state:
+    st.session_state.preprocesser = None
 
 if st.sidebar.button('Start Preprocess'):
     lyrics = np.array([])
+    preprocesser = preprocess.Preprocessing(Pipeline=pipeline)
     process_bar = st.sidebar.progress(0)
-    for i, lyric in enumerate(df.lyrics):
-        lyrics=np.append(lyrics,clean.Preprocess(lyric))
-        process_bar.progress((i + 1)/len(df.lyrics))
-    tokenize_lyric=[]
-    for lyric in lyrics:
-        tokenize_lyric.append(lyric.split())
-    for i in range(len(df.id)):
-        tokenize_lyric[i].append(f"-->{df.id[i]}")
+    with st.spinner(text="Please wait..."):
+        for i, lyric in enumerate(df.lyrics):
+            lyrics=np.append(lyrics,preprocesser.Preprocess(lyric))
+            process_bar.progress((i + 1)/len(df.lyrics))
+        tokenize_lyric=[]
+        for lyric in lyrics:
+            tokenize_lyric.append(lyric.split())
+        for i in range(len(df.id)):
+            tokenize_lyric[i].append(f"-->{df.id[i]}")
 
     st.session_state.tokenize_lyric = tokenize_lyric
+    st.session_state.preprocesser= preprocesser
 
 if st.session_state.tokenize_lyric is not None:
     st.sidebar.success('Done!', icon="✅")
@@ -65,13 +70,14 @@ with tab1:
             if st.session_state.tokenize_lyric is None:
                 st.error("You haven't preprocessed the data yet!! Please run it first!!", icon="🚨")
             else:
+                preprocesser=st.session_state.preprocesser
                 with st.spinner(text="Searching..."):
                     tokenize_lyric = st.session_state.tokenize_lyric
                     test_df['qid'] = test_df.index +1
                     query_token=[]
                     for _, row in test_df.iterrows(): 
                         query=row['corpus'].replace('...',' ')
-                        query=clean.Preprocess(query)
+                        query=preprocesser.Preprocess(query)
                         query=query.split(" ")
                         query_token.append(query)
                     
@@ -106,17 +112,21 @@ with tab1:
                 st.pyplot(fig)
                 st.metric(label="Mean Reciprocal Rank", value=str(MRR))
 
-
 with tab2:
 
     query=st.text_input('Input query:')
-    query=query.replace('...',' ')
-    query=clean.Preprocess(query)
-    token=query.split(" ")
+
 
     if st.button("Search"):
-        with st.spinner(text="Searching..."):
-            tokenize_lyric = st.session_state.tokenize_lyric
-            bm25 = BM25Plus(tokenize_lyric)
-            rank=bm25okapi_search(token, bm25, tokenize_lyric, n_results= 5)
-        st.write(df[df.id.isin(rank)].reset_index(drop=True))
+        if st.session_state.tokenize_lyric is None:
+            st.error("You haven't preprocessed the data yet!! Please run it first!!", icon="🚨")
+        else:
+            preprocesser=st.session_state.preprocesser
+            query=query.replace('...',' ')
+            query=preprocesser.Preprocess(query)
+            token=query.split(" ")
+            with st.spinner(text="Searching..."):
+                tokenize_lyric = st.session_state.tokenize_lyric
+                bm25 = BM25Okapi(tokenize_lyric)
+                rank=bm25okapi_search(token, bm25, tokenize_lyric, n_results= 5)
+            st.write(df[df.id.isin(rank)].reset_index(drop=True))
