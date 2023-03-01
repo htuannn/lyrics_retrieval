@@ -1,33 +1,32 @@
-•	I'm so into you
 I=I+PRP
-am=am+VBP
-so=so+UH
+'m=be+VBP
+so=so+RB
 into=into+IN
 you=you+PRP
-•	I'll roll the dice
+
 I=I+PRP
-will=will+MD
+'ll=will+MD
 roll=roll+VB
 the=the+DT
-dice=dice+NN/NNS
-•	All I want for Christmas is you
+dice=dice+NN
+
 All=All+DT
 I=I+PRP
 want=want+VB
 for=for+IN
 Christmas=Christmas+NNP
-is=is+VBZ
+is=be+VBZ
 you=you+PRP
-•	There's a fire starting in my heart
+
 There=there+EX
-is=is+VBZ
+'s=be+VBZ
 a=a+DT
 fire=fire+NN
 starting=start+VBG
 in=in+IN
 my=my+PRP$
 heart=heart+NN
-•	You had my heart inside of your hand
+
 You=you+PRP
 had=have+VBD
 my=my+PRP$
@@ -36,26 +35,27 @@ inside=inside+IN
 of=of+IN
 your=your+PRP$
 hand=hand+NN
-•	I was gonna go easy on you and not to hurt your feelings
+
 I=I+PRP
-was=is+VBD
-gonna=going to+MD
+was=be+VBD
+gon=go+VBG
+na=to+TO
 go=go+VB
 easy=easy+JJ
 on=on+IN
 you=you+PRP
 and=and+CC
 not=not+RB
-to hurt=to hurt+TO
+to=to+TO
+hurt=hurt+ VB
 your=your+PRP$
-feelings=feelings+NNS
+feelings=feeling+NNS
 
-•	Just a feeling I've got, like something's about to happen, but I don't know what
 Just=just+RB
 a=a+DT
 feeling=feeling+NN
 I=I+PRP
-have=have+VBP
+'ve=have+VBP
 got=get+VBN
 ,=,+,
 like=like+IN
@@ -68,39 +68,40 @@ happen=happen+VB
 but=but+CC
 I=I+PRP
 do=do+VBP
-not=not+RB
+n't=not+RB
 know=know+VB
 what=what+WP
-•	'Cause we never go out of style
-‘Cause=Because+IN
+
+'Cause=Because+IN
 we= we+PRP
 never=never+RB
 go=go+VBP
 out=out+IN
 of=of+IN
 style= style+NN
-•	The building's new tenants are arriving in the next couple of days, so the staff is getting everything ready.
+
 The=the +DT
 building=building+NN
-‘s=‘s+POS
+'s='s+POS
 new=new+JJ
 tenants= tenant+NNS
-are=are+VBP
+are=be+VBP
 arriving=arrive+VBG
 in=in+IN 
 the=the+DT
 next=next+JJ
 couple=couple+NN
+of=of+IN
 days=day+NNS
 ,=,+,
 so=so+CC
 the=the+DT
 staff=staff+NN
-is=is+VBZ
+is=be+VBZ
 getting=get+VBG
 everything=everything+NN
 ready=ready+JJ
-•	Those who still wish to submit applications after the deadline must pay a $45 late fee in order to be considered.
+
 Those=that+DT
 who=who+WP
 still=still+RB
@@ -123,28 +124,26 @@ order=order+NN
 to=to+TO
 be=be+VB
 considered=consider+VBN
-•	Local rock band The Chimney Sweeps will be performing an in-store concert at Desert Island Records.
+
 local=local+JJ
 rock=rock+NN
 band=band+NN
 The=the+DT
 Chimney= Chimney+NNP
-Sweeps=Sweeps+NNPS
+Sweeps=Sweep+NNPS
 will=will+MD
 be=be+VB
 performing=perform+VBG
 an=an+DT
-in= in+IN
--= -+HYPH
-store= store+NN
+in-store=in-store+JJ
 concert=concert+NN
 at=at+IN
-Desert=desert +NNP
+Desert=desert+NNP
 Island=island+NNP
-Records=Records+NPS
+Records=Record+NNPS
 .=.+.
-•	Please do not leave any garbage in the park—either take it with you when you leave, or place it in the closed garbage bins that are provided throughout the park.
-please=please +
+
+please=please+UH
 do=do+VB
 not=not+RB
 leave=leave+VB
@@ -159,56 +158,56 @@ take=take+VB
 it=it+PRP
 with=with+IN 
 you=you+PRP
- when=when+WP
+when=when+WRB
 you=you+PRP
-leave=leave+VB
+leave=leave+VBP
 ,=,+,
 or=or+CC
-place=place+VB
+place=place+VBP
 it=it+PRP
+in=in+IN
 the=the +DT
-closed=close+JJ 
+closed=closed+JJ 
 garbage=garbage+NN 
 bins= bin+NNS
 that=that+WDT
-are=are+VBP
+are=be+VBP
 provided=provide+VBN
 throughout=throughout+IN
 the=the+DT
 park=park+NN
-•	I don’t know what to say!
+
 I=I+PRP
 do=do+VPB
-n’t=not+RB
+n't=not+RB
 know=know+VB
 what=what+WP
 to=to+TO 
 say=say+VB
 !=!+SENT
-•	Go make yourself some friends, or you'll be lonely
+
 Go=go+VB
 make=make+VB
 yourself=yourself+PRP 
 some=some+DT
-friends=NNS
+friends=friend+NNS
 or=or+CC
 you=you+PRP
-‘ll=will+MD
+'ll=will+MD
 be=be+VB
 lonely=lonely+JJ
 
-•	I always had that dream like my daddy before me
 I=I+PRP
-always=always+DT
+always=always+RB
 had=have+VBD
 that=that+IN
 dream=dream+NN
 like=like+IN
 my=my+PRP$
 daddy=daddy+NN
-before=before+DT
+before=before+IN
 me=me+PRP
-•	You probably never loved someone like I do
+
 You=you+PRP
 Probably=probably+RB
 Never=never+RB
@@ -217,9 +216,9 @@ Someone=someone+NN
 Like=like+IN
 I=I+PRP
 Do=do+VBP
-•	it’s the end of the party and the morning seems so grey
+
 it=it+PRP
-‘s=is+VB
+'s=be+VB
 the=the+DT
 end=end+NN
 of=of+IN
@@ -231,16 +230,16 @@ morning=morning+NN
 seems=seem+VBZ
 so=so+RB
 grey=grey+JJ
-•	But I don’t want nothing at all
+
 But=but+CC
 I=I+PRP
 do= do+VBP
-not=not+RB
+n't=not+RB
 want=want+VB
 nothing=nothing+NN
 at=at+IN
 all=all+DT
-•	I was wondering if after all these years you'd like to meet again.
+
 I=I+PRP
 was=be+VBD
 wondering=wonder+VBG
@@ -250,38 +249,39 @@ all=all+PDT
 these=this+DT
 years=year+NNS
 you=you+PRP
-‘d=would=would+MD
+'d=will+MD
 like=like+VB
 to=to+TO
 meet=meet+VB
 again=again+RB
-•	I'm sorry for everything that I've done
+
 I=I+PRP
-am=am+VBP
+'m=be+VBP
 sorry=sorry+JJ
 for=for+IN
 everything=everything+NN
 that=that+WDT
-have=have+VBP
+i=i+PRP
+'ve=have+VBP
 done=do+VBN
-•	There's a fire starting in my heart
+
 There=there+EX
-is=is+VBZ
+'s=be+VBZ
 a=a+DT
 fire=fire+NN
 starting=start+VBG
 in=in+IN
 my=my+PRP$
 heart=heart+NN
-•	There is a flower on the ground
+
 There=there+EX
-Is=is+VBZ
-A=a+DT
-Flower=flower+NN
-On=on+IN
-The=the+DT
-Ground=ground+NN
-•	It is known that humans are responsible for a variety of environmental problems, but we can also take steps to minimize the damages that we are causing to the planet.
+is=be+VBZ
+a=a+DT
+flower=flower+NN
+on=on+IN
+the=the+DT
+ground=ground+NN
+
 It=it+PRP
 is=be+VBZ
 known=know+VBN
@@ -293,7 +293,7 @@ for=for+IN
 a=a+DT
 variety=variety+NN
 of=of+IN
-environmental=environment+JJ
+environmental=environmental+JJ
 problems=problem+NNS
 ,=,+,
 but=but+CC
@@ -303,14 +303,17 @@ also=also+RB
 take=take+VB
 steps=step+NNS
 to=to+TO
-minimize=mini+VB
+minimize=minimize+VB
 the=the+DT
 damages=damage+NNS
-that=that+WDT
+that=that+IN
+we=we+PRP
+are=be+VBP
 causing=cause+VBG
 to=to+IN
+the=the+DT
 planet=planet+NN
-•	Nevertheless, keeping animals free is more logical than isolating them because if we keep animals caged, they would not be able to have fresh air and chase other animals.
+
 Nevertheless=Nevertheless+RB
 ,=,+,
 keeping=keep+VBG
@@ -318,16 +321,18 @@ animals=animal+NNS
 free=free+JJ
 is=be+VBZ
 more=more+RBR
-logical=logic+JJ
+logical=logical+JJ
 than=than+IN
 isolating=isolate+VBG
 them=them+PRP
 because=because+IN
 if=if+IN
 we=we+PRP
+keep=keep+VBP
+animals=animal+NNS
 caged=cage+VBN
 they=they+PRP
-would=would+MD
+would=will+MD
 not=not+RB
 be=be+VB
 able=able+JJ
@@ -338,9 +343,10 @@ air=air+NN
 and=and+CC
 chase=chase+VB
 other=other+JJ 
-•	Take Indian lions for example; a wide range of people travel to India to see these animals in circuses in India.
+animals=animal+NNS
+
 Take=take+VB
-Indian=India+JJ
+Indian=Indian+JJ
 lions=lion+NNS
 for=for+IN
 example=example+NN
@@ -358,8 +364,8 @@ see=see+VB
 these=these+DT
 animals=animal+NNS
 in=in+IN
-circuses+NNS
-•	As the problems are on our doorstep, and there are obvious ways to help, I can understand why some people feel that we should prioritize local charity.
+circuses=circus+NNS
+
 As=as+IN
 the=the+DT
 problems=problem+NNS
@@ -370,6 +376,7 @@ doorstep=doorstep+NN
 ,=,+,
 and=and+CC
 there=there+EX
+are=be+VBP
 obvious=obvious+JJ
 ways=way+NNS
 to=to+TO
@@ -384,18 +391,18 @@ feel=feel+VBP
 that=that+IN
 we=we+PRP
 should=should+MD
-prioritize=priority+VB
+prioritize=prioritize+VB
 local=local+JJ
 charity=charity+NN
-•	Happiness is considered very important in life.
-Happiness=happy+NN
+
+Happiness=happiness+NN
 is=be+VBZ
 considered=consider+VBN
 very=very+RB
 important=important+JJ
-in=in+JJ
+in=in+IN
 life=life+NN
-•	On the other hand, there are simple factors in attaining happiness.
+
 On=on+IN
 the=the+DT
 other=other+JJ
@@ -407,14 +414,14 @@ simple=simple+JJ
 factors=factor+NNS
 in=in+IN
 attaining=attain+VBG
-happiness=happy+NN
-•	In recent years, there has been growing interest in the relationship between equality and personal achievement.
+happiness=happiness+NN
+
 In=in+IN
 recent=recent+JJ
 years=year+NNS
 ,=,+,
 there=there+EX
-has=have+VHZ
+has=have+VBZ
 been=be+VBN
 growing=grow+VBG
 interest=interest+NN
@@ -426,12 +433,12 @@ equality= equality+NN
 and=and+CC
 personal=personal+JJ
 achievement=achievement+NN
-•	What is your view of the relationship between equality and personal success?
+
 What=what+WP
-is=is+VBZ
+is=be+VBZ
 your=your+PRP$
 view=view+NN
-of=of+DT
+of=of+IN
 the=the+DT
 relationship=relationship+NN
 between=between+ IN
@@ -439,36 +446,36 @@ equality=equality+NN
 and=and+CC
 personal=personal+JJ
 success=success+NN
-•	Firstly, academic qualifications are required in many professions.
-firstly=first+RB
+
+firstly=firstly+RB
 academic=academic+JJ
 qualifications=qualification+NNS
-are=are+VBP
+are=be+VBP
 required=require+VBN
 in=in+IN
 many=many+JJ
 professions=profession+NNS
 
-•	How realistic is the expectation of job satisfaction for all workers?
-How=how+WP
+How=how+WRB
 realistic=realistic+JJ
-is=is+VBZ
+is=be+VBZ
 the=the+DT
 expectation=expectation+NN
 of=of+IN
 job=job+NN
 satisfaction=satisfaction+NN
 for=for+IN
-all=all+JJ 
+all=all+DT
 workers= worker+NNS 
-•	It has been essential to understand individuals’ commitments to exclude this particular fellow from 9 to 5 working hours.
+
 It=it+PRP
-has=has+VHB
+has=have+VBZ
 been=be+VBN
 essential=essential+JJ
 to=to+TO
 understand=understand+VB
-individuals’=individual+POS
+individuals=individual+NNS
+'='+POS
 commitments=commitment+NNS
 to=to+TO
 exclude=exclude+VB
@@ -481,28 +488,28 @@ to=to+IN
 5=5+CD
 working=work+VBG
 hours= hour+NNS
-•	This type of help would give them more job contentment.
+
 This=this+DT
 type=type+NN
 of=of+IN
 help=help+NN
-would=would+MD
+would=will+MD
 give=give+VB
 them=them+PRP
 more=more+JJR
-job=NN
-contentment=content+NN
-•	To what extent is this style of management effective?
+job=job+NN
+contentment=contentment+NN
+
 To=to+IN
 what=what+WDT
 extent=extent+NN
-is=is+VBZ
+is=be+VBZ
 this=this+DT
 style=style+NN
 of=of+IN
 management=management+NN
 effective=effective+JJ
-•	What is the best way to encourage employees to work hard?
+
 What=what+WP
 is=be+VBZ
 the=the+DT
@@ -511,19 +518,20 @@ way=way+NN
 to=to+TO
 encourage=encourage+VB
 employees=employee+NNS
+to=to+TO
 work=work+VB
 hard=hard+RB
 ?=?+.
-•	Popular hobbies and interests change over time and are more a reflection of trends and fashions than an indication of what individuals really want to do in their spare time.
+
 Popular=popular+JJ
 hobbies=hobby+NNS
 and=and+CC
-interest=interest+NNS
+interests=interest+NNS
 change=change+VBP
 over=over+IN
 time=time+NN
 and=and+CC
-are=are+VBN
+are=be+VBP
 more=more+RBR
 a=a+DT
 reflection=reflection+NN
@@ -545,11 +553,11 @@ in=in+IN
 their=their+PRP$
 spare=spare+JJ
 time=time+NN 
-•	Countries that get caught in this debt spiral have no chance of paying back the initial money borrowed, while the banks making the loans make two or three times the money lent after the interest payments are taken into account.
+
 countries=country+NNS
-that=that+EX
+that=that+WDT
 get=get+VBP
-caught=caught+NN
+caught=catch+VBN
 in=in+IN
 this=this+DT
 debt=debt+NN
@@ -559,11 +567,11 @@ no=no+DT
 chance=chance+NN
 of=of+IN
 paying=pay+VBG
-back=back+RB
+back=back+RP
 the=the+DT
 initial=initial+JJ
 money=money+NN
-borrowed=borrow+VBP
+borrowed=borrow+VBN
 ,=,+,
 while=while+IN
 the=the+DT
@@ -578,31 +586,31 @@ three=three+CD
 times=time+NNS
 the=the+DT
 money=money+NN
-lent=lend+NN 
+lent=lent+NN 
 after=after+IN
 the=the+DT
-interest=interest+JJ
+interest=interest+NN
 payments=payment+NNS
-are=are+VBP
+are=be+VBP
 taken=take+VBN
 into=into+IN
 account=account+NN
 
-•	These seemingly technological achievements can seriously harm humans’ health.
 These=this+DT
-seemingly=seem+RB
-technological=technology+JJ
+seemingly=seemingly+RB
+technological=technological+JJ
 achievements=achievement+NNS
-can=can+MB
-seriously=serious+RB
+can=can+MD
+seriously=seriously+RB
 harm=harm+VB
-humans’=human+POS
+humans=human+NNS
+'='+POS
 health=health+NN
-•	To halt these irrecoverable influences or reduce the detrimental effects on our body, some pragmatic measures must be taken.
+
 To= to+TO
 halt=halt+VB
 these=this+DT
-irrecoverable=recover+JJ 
+irrecoverable=irrecoverable+JJ 
 influences=influence+NNS
 or=or+CC
 reduce=reduce+VB
@@ -615,6 +623,6 @@ body=body+NN
 some=some+DT
 pragmatic=pragmatic+JJ
 measures=measure+NNS
-must=must+ND
+must=must+MD
 be=be+VB
 taken=take+VBN

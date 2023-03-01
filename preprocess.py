@@ -21,16 +21,17 @@ class Preprocessing:
 		elif "word_space_tokenize" in self.Pipeline:
 			self.tokenizer='split'
 
-		if "stemming" in self.Pipeline:
+		if "PorterStemmer" in self.Pipeline:
 			self.stemmer = PorterStemmer()
-		if "nltk_lemmatizer" in self.Pipeline:
+		if "WordNetLemmatizer" in self.Pipeline:
 			self.lemmatizer=LemmatizationWithPOSTagger(use_nltk_lemma=True)
-		if "lemmatizer" in self.Pipeline:
+		if "DIY_lemmatizer" in self.Pipeline:
 			self.lemmatizer=LemmatizationWithPOSTagger()
 
 		self.CONTRACTION_MAP= self._load('dictionary')
 		self.stop_words= set(nltk.corpus.stopwords.words('english'))
 		self.stop_words.remove("not")
+	
 	def _load(self, path):
 		#load dictionary file from 'dictionary' folder
 		if 'contraction_word_dictionary.txt' not in os.listdir(path):
@@ -66,7 +67,7 @@ class Preprocessing:
 		translator = str.maketrans('', '', string.punctuation)
 		return text.translate(translator)
 
-	def replace_cw(self, text):
+	def expand_contraction(self, text):
 		"""
 		return string-type
 		"""
@@ -79,11 +80,13 @@ class Preprocessing:
 	def stem(self, text):
 		return ". ".join([" ".join([self.stemmer.stem(word) for word in sent.split(' ')]) for sent in text.split('. ')])
 
+	"""
 	def handle_negation(self, text):
 		match = re.search(r'\b(?:not)\b (\S+)', text)
 		if match:
 			text= text.replace(match.group(0), 'NEG_' + match.group(1))
 		return text
+	"""
 
 	def Preprocess(self, str):
 		str = self.text_lowercase(str)
@@ -92,18 +95,20 @@ class Preprocessing:
 		str = str.replace('\n\n', '')
 		str = str.replace('\n', '. ')
 		str= self.remove_whitespace(str)
-		str = self.replace_cw(str)
+		str = self.expand_contraction(str)
 
-		if any(opt in self.Pipeline for opt in ['nltk_lemmatizer', 'lemmatizer']):
+		if any(opt in self.Pipeline for opt in ['WordNetLemmatizer', 'DIY_lemmatizer']):
 			str= self.lemmatize(str)
 
-		if 'stemming' in self.Pipeline:
+		if 'PorterStemmer' in self.Pipeline:
 			str= self.stem(str)
 
 		str= self.remove_punctuation(str)
-
+		
+		"""
 		if 'handle_negation' in self.Pipeline:
 			str = self.handle_negation(str)
+		"""
 
 		if 'remove_stopword' in self.Pipeline:
 			str= self.remove_stopwords(str)

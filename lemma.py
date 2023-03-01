@@ -77,7 +77,7 @@ class Lemmatization(object):
 
     def _convert_pos(self,treebank_tag):
         """
-        return POS compliance to lemmatization dictionary POS 
+        return POS compliance to lemmatization dictionary POS (UD)
         """
         #JJ, JJR, JJS -> ADJ
         if treebank_tag.startswith('J'):
