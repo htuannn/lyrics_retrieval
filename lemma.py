@@ -15,6 +15,7 @@ class Lemmatization(object):
         self.vowels = "aeiou"
         self.consonants = "bcdfghjklmnpqrstwxyz"
         self.word_lemma_dict={}
+        #load dictionary
         with open(os.path.join(self.dict_path, "BNClemma10_3_with_c5.txt"), 'r', encoding='utf-8') as file:
             lines=file.read()
         lines = lines.replace('\ufeff', '').split('\n')
@@ -76,7 +77,7 @@ class Lemmatization(object):
 
     def _convert_pos(self,treebank_tag):
         """
-        return POS compliance to lemmatization dictionary POS 
+        return POS compliance to lemmatization dictionary POS (UD)
         """
         #JJ, JJR, JJS -> ADJ
         if treebank_tag.startswith('J'):
