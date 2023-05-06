@@ -1,4 +1,4 @@
-# SONG'S INFORMATION RETIREVAL BASED ON LYRICS
+# SONG'S INFORMATION RETRIEVAL BASED ON LYRICS
 
 ![alt text](https://github.com/htuannn/Information-Retrieval-Music-Searching-Machine/blob/09f46816b8a27aeec9b7db766272c5830af30141/sample.jpeg "Samples")
 
